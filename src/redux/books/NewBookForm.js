@@ -35,7 +35,7 @@ class NewBookForm extends Component {
           onChange={this.onChange}
         />
         <select>
-          <option value="Category" disabled selected>Category</option>
+          <option defaultValue="Category">Category</option>
           <option value="action">Action</option>
           <option value="science-fiction">Science Fiction</option>
           <option value="economy">Economy</option>

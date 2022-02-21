@@ -9,7 +9,6 @@
 .item {
   display: flex;
   justify-content: space-between;
-  border: solid var(--gray) 1px;
   border-radius: 5px;
   margin: 5%;
   font-family: 'Times New Roman', Times, serif;
