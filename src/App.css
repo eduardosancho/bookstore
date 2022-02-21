@@ -1,3 +1,29 @@
 .App {
   text-align: center;
+  background-color: rgb(230, 230, 230);
+}
+
+h1 {
+  color: var(--blue-info);
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 15px 50px;
+  border-bottom: rgb(220, 220, 220) 1px outset;
+  background-color: white;
+  gap: 50px;
+}
+
+nav ul > * {
+  margin: 5px 20px;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+ul {
+  padding-inline-start: 0;
 }

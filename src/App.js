@@ -9,8 +9,8 @@ function App() {
       <nav>
         <h1>Bookstore CMS</h1>
         <ul>
-          <Link to="/">Books</Link>
-          <Link to="/categories">Categories</Link>
+          <Link to="/">BOOKS</Link>
+          <Link to="/categories">CATEGORIES</Link>
         </ul>
       </nav>
       <Routes>
