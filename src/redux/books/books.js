@@ -1,7 +1,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import NewBookForm from './NewBookForm';
-import Library from './Library';
+import NewBookForm from '../../components/NewBookForm';
+import Library from '../../components/Library';
 
 class Books extends React.Component {
   constructor(props) {
