@@ -7,12 +7,16 @@ function Library(props) {
 
   return (
     <ul>
-      {bookList.map((book) => (
-        <BookItem
-          key={book.id}
-          book={book}
-        />
-      ))}
+      {bookList.length ? (
+        bookList.map((book) => (
+          <BookItem
+            key={book.id}
+            book={book}
+          />
+        ))
+      ) : (
+        <h3>Add the first book!</h3>
+      )}
     </ul>
   );
 }
