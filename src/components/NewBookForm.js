@@ -1,53 +1,63 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './NewBookForm.module.css';
-// import propTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../redux/books/books';
 
-class NewBookForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
+export default function NewBookForm() {
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('Action');
+  const dispatch = useDispatch();
+
+  const submitBookToStore = (form) => {
+    const newBook = {
+      id: uuidv4(),
+      title: form.title.value,
+      author: form.author.value,
+      category: form.category.value,
     };
-  }
-
-  onChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+    dispatch(addBook(newBook));
+    setTitle('');
+    setAuthor('');
+    setCategory('Category');
   };
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // Insert form validation
+    submitBookToStore(e.target);
   };
 
-  render() {
-    const { title } = this.state;
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <p>ADD NEW BOOK</p>
-        <input
-          id="title-field"
-          type="text"
-          placeholder="Book title"
-          value={title}
-          name="title"
-          onChange={this.onChange}
-        />
-        <select>
-          <option defaultValue="Category">Category</option>
-          <option value="action">Action</option>
-          <option value="science-fiction">Science Fiction</option>
-          <option value="economy">Economy</option>
-        </select>
-        <button type="submit">ADD BOOK</button>
-      </form>
-    );
-  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <p>ADD NEW BOOK</p>
+      <input
+        id="title-field"
+        type="text"
+        placeholder="Book title"
+        onChange={({ target }) => setTitle(target.value)}
+        value={title}
+        name="title"
+      />
+      <input
+        id="author-field"
+        type="text"
+        placeholder="Author"
+        onChange={({ target }) => setAuthor(target.value)}
+        value={author}
+        name="author"
+      />
+      <select
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        name="category"
+      >
+        <option defaultValue="Category">Category</option>
+        <option value="Action">Action</option>
+        <option value="Science Fiction">Science Fiction</option>
+        <option value="Economy">Economy</option>
+      </select>
+      <button type="submit">ADD BOOK</button>
+    </form>
+  );
 }
-
-export default NewBookForm;
-
-// NewBookForm.propTypes = {
-//   addBookProps: propTypes.func.isRequired,
-// };

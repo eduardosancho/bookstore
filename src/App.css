@@ -3,6 +3,12 @@
   background-color: rgb(230, 230, 230);
 }
 
+.App-logo {
+  width: 3rem;
+  margin-right: 10px;
+  margin-left: auto;
+}
+
 h1 {
   color: var(--blue-info);
   font-size: 2rem;
