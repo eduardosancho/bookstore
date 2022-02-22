@@ -1,9 +1,13 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/books';
 import styles from './BookItem.module.css';
 
 export default function BookItem(props) {
   const { book } = props;
+
+  const dispatch = useDispatch();
   return (
     <li className={styles.item}>
       <div className={styles.description}>
@@ -11,9 +15,28 @@ export default function BookItem(props) {
         <h2 className={styles.title}>{book.title}</h2>
         <h3 className={styles.author}>{book.author}</h3>
         <ul className={styles.actions}>
-          <li>Comments</li>
-          <li>Remove</li>
-          <li>Edit</li>
+          <li>
+            <button
+              type="button"
+            >
+              Comments
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              onClick={() => dispatch(removeBook(book.id))}
+            >
+              Remove
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+            >
+              Edit
+            </button>
+          </li>
         </ul>
       </div>
       <div className={styles.progress}>

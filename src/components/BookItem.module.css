@@ -45,10 +45,16 @@
 .actions {
   display: flex;
   gap: 15px;
-  color: var(--blue-text);
-  font-size: 0.8rem;
   padding-inline-start: 0;
   list-style: none;
+}
+
+.actions button {
+  color: var(--blue-text);
+  font-size: 0.8rem;
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
 
 .progress {
@@ -102,4 +108,8 @@
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
+}
+
+.actions button:hover {
+  text-decoration: underline;
 }
