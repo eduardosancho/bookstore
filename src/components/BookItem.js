@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/books';
+import deleteBookFromAPI from '../redux/actions/removeBook';
 import styles from './BookItem.module.css';
 
 export default function BookItem(props) {
@@ -25,7 +25,9 @@ export default function BookItem(props) {
           <li>
             <button
               type="button"
-              onClick={() => dispatch(removeBook(book.id))}
+              onClick={() => {
+                dispatch(deleteBookFromAPI(book.item_id));
+              }}
             >
               Remove
             </button>
