@@ -2,11 +2,18 @@ import './App.css';
 import {
   BrowserRouter, Routes, Route, Link,
 } from 'react-router-dom';
-import logo from './logo192.png';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import getBooks from './redux/actions/getBooks';
 import BooksContainer from './components/BooksContainer';
 import Categories from './redux/categories/categories';
+import logo from './logo192.png';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getBooks());
+  }, []);
   return (
     <div className="App">
 
