@@ -3,7 +3,7 @@ import { ADD_BOOK } from '../books/books';
 
 import { logOut } from './removeBook';
 
-const addBook = (payload) => ({
+export const addBook = (payload) => ({
   type: ADD_BOOK,
   payload,
 });
@@ -18,8 +18,8 @@ const postBookToAPI = (newBook) => function (dispatch) {
       'Content-type': 'application/json; charset=UTF-8',
     },
   }).then((res) => res.text())
-    .then((successMessage) => {
-      dispatch(logOut(successMessage));
+    .then((successfulPost) => {
+      logOut(successfulPost);
     });
   dispatch(addBook(newBook));
 };

@@ -4,6 +4,7 @@ import { selectBooks } from '../redux/books/books';
 import createApp from '../redux/actions/createApp';
 import NewBookForm from './NewBookForm';
 import Library from './Library';
+import getBooks from '../redux/actions/getBooks';
 
 function BooksContainer() {
   const bookList = useSelector(selectBooks);
@@ -14,6 +15,7 @@ function BooksContainer() {
         type="button"
         onClick={() => {
           dispatch(createApp());
+          dispatch(getBooks());
         }}
       >
         log books
