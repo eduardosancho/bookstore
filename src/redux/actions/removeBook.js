@@ -17,14 +17,9 @@ const deleteBookFromAPI = (bookID) => function (dispatch) {
     },
   }).then((res) => res.text())
     .then((successfulDelete) => {
-      logOut(successfulDelete);
+      console.log(successfulDelete);
     });
   dispatch(removeBook(bookID));
-
-};
-
-export const logOut = (text) => {
-  console.log(text);
 };
 
 export default deleteBookFromAPI;

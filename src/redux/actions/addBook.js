@@ -1,8 +1,6 @@
 import { basicURL, appID } from './createApp';
 import { ADD_BOOK } from '../books/books';
 
-import { logOut } from './removeBook';
-
 export const addBook = (payload) => ({
   type: ADD_BOOK,
   payload,
@@ -19,7 +17,7 @@ const postBookToAPI = (newBook) => function (dispatch) {
     },
   }).then((res) => res.text())
     .then((successfulPost) => {
-      logOut(successfulPost);
+      console.log(successfulPost);
     });
   dispatch(addBook(newBook));
 };

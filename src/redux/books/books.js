@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from 'uuid';
-import { useDispatch } from 'react-redux';
 
 export const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 export const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';

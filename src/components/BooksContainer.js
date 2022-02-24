@@ -1,25 +1,13 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectBooks } from '../redux/books/books';
-import createApp from '../redux/actions/createApp';
 import NewBookForm from './NewBookForm';
 import Library from './Library';
-import getBooks from '../redux/actions/getBooks';
 
 function BooksContainer() {
   const bookList = useSelector(selectBooks);
-  const dispatch = useDispatch();
   return (
     <>
-      <button
-        type="button"
-        onClick={() => {
-          dispatch(createApp());
-          dispatch(getBooks());
-        }}
-      >
-        log books
-      </button>
       <Library
         bookList={bookList}
       />

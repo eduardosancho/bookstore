@@ -5,16 +5,15 @@ const printAppID = (id) => {
   console.log(id);
 };
 
-const createApp = () => function (dispatch) {
+const createApp = () => {
   fetch(basicURL, {
     method: 'POST',
-    body: JSON.stringify({ name: 'helpme' }), // Try to remove this later
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
   }).then((res) => res.text())
     .then((data) => {
-      dispatch(printAppID(data));
+      printAppID(data);
     });
 };
 
