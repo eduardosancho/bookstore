@@ -2,25 +2,27 @@ import React, { useState } from 'react';
 import './NewBookForm.module.css';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/books';
+import postBookToAPI from '../redux/actions/addBook';
 
 export default function NewBookForm() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [category, setCategory] = useState('Action');
+  const [category, setCategory] = useState('');
   const dispatch = useDispatch();
 
   const submitBookToStore = (form) => {
     const newBook = {
-      id: uuidv4(),
+      item_id: uuidv4(),
       title: form.title.value,
       author: form.author.value,
       category: form.category.value,
     };
-    dispatch(addBook(newBook));
-    setTitle('');
-    setAuthor('');
-    setCategory('Category');
+    if (title !== '' && category !== 'Category') {
+      dispatch(postBookToAPI(newBook));
+      setTitle('');
+      setAuthor('');
+      setCategory('Category');
+    }
   };
 
   const handleSubmit = (e) => {
