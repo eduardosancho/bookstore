@@ -11,16 +11,21 @@ export default function NewBookForm() {
   const [category, setCategory] = useState('');
   const dispatch = useDispatch();
 
+  function validateAuthor(author) {
+    return (author === '') ? 'No author registered' : author;
+  }
+
   const submitBookToStore = (form) => {
     const chapter = getRandom(1, 11);
     const newBook = {
       item_id: uuidv4(),
       title: form.title.value,
-      author: form.author.value,
+      author: validateAuthor(form.author.value),
       category: form.category.value,
       currentChapter: `Chapter ${chapter}`,
       completedProgress: chapter * 10,
     };
+
     if (title !== '' && category !== '') {
       dispatch(postBookToAPI(newBook));
       setTitle('');
