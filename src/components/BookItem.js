@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import deleteBookFromAPI from '../redux/actions/removeBook';
 import styles from './BookItem.module.css';
+import Pie from './progressCircle';
 
 export const getRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
@@ -51,7 +52,10 @@ export default function BookItem(props) {
         </ul>
       </div>
       <div className={styles.progress}>
-        <div className={styles.pie} />
+        <Pie
+          percentage={parseInt(completedProgress, 10)}
+          colour="purple"
+        />
         <div className={styles.percentage}>
           <h5>
             {completedProgress}
