@@ -12,7 +12,9 @@ const getBooks = () => function (dispatch) {
         const newBook = {};
         let attributes = [];
         [newBook.item_id, [attributes]] = [...entry];
-        newBook.title = attributes.title;
+        const tempTitle = attributes.title;
+        const splitArray = tempTitle.split('&&&');
+        [newBook.title, newBook.author] = splitArray;
         newBook.category = attributes.category;
         dispatch(addBook(newBook));
       });
