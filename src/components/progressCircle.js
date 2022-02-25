@@ -17,46 +17,31 @@ const cleanPercentage = (percentage) => {
 };
 
 const Circle = ({ colour, percentage }) => {
-  const r = 50;
-  const circ = 2.3 * Math.PI * r;
+  const r = 30;
+  const circ = 2 * Math.PI * r;
   const strokePct = ((100 - percentage) * circ) / 100;
   return (
     <circle
       r={r}
-      cx={100}
-      cy={100}
+      cx={50}
+      cy={50}
       fill="transparent"
       stroke={strokePct !== circ ? colour : ''}
-      strokeWidth="1.5rem"
+      strokeWidth="0.3rem"
       strokeDasharray={circ}
       strokeDashoffset={percentage ? strokePct : 0}
     />
   );
 };
 
-const Text = ({ percentage }) => (
-  <text
-    x="50%"
-    y="50%"
-    dominantBaseline="central"
-    textAnchor="middle"
-    fontSize="1.5em"
-  >
-    {percentage.toFixed(0)}
-    %
-  </text>
-
-);
-
 const Pie = ({ percentage, colour }) => {
   const pct = cleanPercentage(percentage);
   return (
-    <svg width={200} height={200}>
-      <g transform={`rotate(-90 ${'100 100'})`}>
-        <Circle colour="lightgrey" percentage={60} />
-        <Circle colour={colour} percentage={(pct * 0.6)} />
+    <svg width={100} height={100}>
+      <g transform={`rotate(-90 ${'50 50'})`}>
+        <Circle colour="lightgrey" percentage={100} />
+        <Circle colour={colour} percentage={pct} />
       </g>
-      <Text percentage={pct} />
     </svg>
   );
 };
@@ -69,14 +54,6 @@ Circle.propTypes = {
 Circle.defaultProps = {
   percentage: 55,
   colour: 'lightgrey',
-};
-
-Text.propTypes = {
-  percentage: propTypes.number,
-};
-
-Text.defaultProps = {
-  percentage: 55,
 };
 
 Pie.propTypes = {
