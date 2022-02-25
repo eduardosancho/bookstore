@@ -3,6 +3,7 @@ import './NewBookForm.module.css';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import postBookToAPI from '../redux/actions/addBook';
+import { getRandom } from './BookItem';
 
 export default function NewBookForm() {
   const [title, setTitle] = useState('');
@@ -11,11 +12,14 @@ export default function NewBookForm() {
   const dispatch = useDispatch();
 
   const submitBookToStore = (form) => {
+    const chapter = getRandom(1, 11);
     const newBook = {
       item_id: uuidv4(),
       title: form.title.value,
       author: form.author.value,
       category: form.category.value,
+      currentChapter: `Chapter ${chapter}`,
+      completedProgress: chapter * 10,
     };
     if (title !== '' && category !== 'Category') {
       dispatch(postBookToAPI(newBook));

@@ -4,8 +4,16 @@ import { useDispatch } from 'react-redux';
 import deleteBookFromAPI from '../redux/actions/removeBook';
 import styles from './BookItem.module.css';
 
+export const getRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
 export default function BookItem(props) {
   const { book } = props;
+  const randomChapter = getRandom(1, 11);
+
+  const {
+    currentChapter = `Chapter ${randomChapter}`,
+    completedProgress = randomChapter * 10,
+  } = book;
 
   const dispatch = useDispatch();
   return (
@@ -45,7 +53,7 @@ export default function BookItem(props) {
         <div className={styles.pie} />
         <div className={styles.percentage}>
           <h5>
-            {book.completedProgress}
+            {completedProgress}
             %
           </h5>
           <p>Completed</p>
@@ -53,7 +61,7 @@ export default function BookItem(props) {
       </div>
       <div className={styles.update}>
         <p className={styles.label}>CURRENT CHAPTER</p>
-        <p className={styles.currentChapter}>{book.currentChapter}</p>
+        <p className={styles.currentChapter}>{currentChapter}</p>
         <button type="submit">UPDATE PROGRESS</button>
       </div>
     </li>
