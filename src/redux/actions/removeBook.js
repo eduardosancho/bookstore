@@ -15,10 +15,7 @@ const deleteBookFromAPI = (bookID) => function (dispatch) {
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
-  }).then((res) => res.text())
-    .then((successfulDelete) => {
-      console.log(successfulDelete);
-    });
+  });
   dispatch(removeBook(bookID));
 };
 

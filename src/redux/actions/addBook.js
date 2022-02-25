@@ -10,7 +10,6 @@ const postBookToAPI = (newBook) => function (dispatch) {
   const postURL = `${basicURL}${appID}/books/`;
   const bookCopy = { ...newBook };
   bookCopy.title = `${bookCopy.title}&&&${bookCopy.author}`;
-  console.log('copy ', bookCopy);
 
   fetch(postURL, {
     method: 'POST',
@@ -18,10 +17,7 @@ const postBookToAPI = (newBook) => function (dispatch) {
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
-  }).then((res) => res.text())
-    .then((successfulPost) => {
-      console.log(successfulPost);
-    });
+  });
   dispatch(addBook(newBook));
 };
 

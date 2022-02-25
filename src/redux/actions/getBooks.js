@@ -7,7 +7,6 @@ const getBooks = () => function (dispatch) {
     .then((res) => res.json())
     .then((data) => {
       const bookEntries = Object.entries(data);
-      console.log(bookEntries);
       bookEntries.forEach((entry) => {
         const newBook = {};
         let attributes = [];
