@@ -33,28 +33,46 @@ nav ul li > * {
 
 nav ul {
   display: flex;
-  padding-inline-start: 0;
   list-style: none;
+}
+
+ul {
+  padding-inline-start: 0;
 }
 
 .active {
   color: var(--dark-gray);
 }
 
+.categories-temp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 100px - 90px);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.categories-title {
+  margin: 0;
+  color: var(--dark-gray);
+
+}
+
 @media (max-width: 635px) {
   .App {
-    margin-bottom: 200px;
+    padding-bottom: 190px;
   }
 }
 
 @media (min-width: 635px) {
   .App {
-    margin-bottom: 160px;
+    padding-bottom: 150px;
   }
 }
 
 @media (min-width: 960px) {
   .App {
-    margin-bottom: 110px;
+    padding-bottom: 100px;
   }
 }
