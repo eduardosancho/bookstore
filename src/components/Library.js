@@ -6,7 +6,7 @@ function Library(props) {
   const { bookList } = props;
 
   return (
-    <ul>
+    <ul className="books-container">
       {bookList.length ? (
         bookList.map((book) => (
           <BookItem
