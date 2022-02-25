@@ -33,3 +33,21 @@ nav ul > * {
 ul {
   padding-inline-start: 0;
 }
+
+@media (max-width: 635px) {
+  .App {
+    margin-bottom: 200px;
+  }
+}
+
+@media (min-width: 635px) {
+  .App {
+    margin-bottom: 160px;
+  }
+}
+
+@media (min-width: 960px) {
+  .App {
+    margin-bottom: 110px;
+  }
+}
