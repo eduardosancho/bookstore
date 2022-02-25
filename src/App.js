@@ -1,6 +1,6 @@
 import './App.css';
 import {
-  BrowserRouter, Routes, Route, Link,
+  BrowserRouter, Routes, Route, NavLink,
 } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -23,8 +23,12 @@ function App() {
           <h1>Bookstore CMS</h1>
           <MediaQuery minWidth={860}>
             <ul>
-              <Link to="/">BOOKS</Link>
-              <Link to="/categories">CATEGORIES</Link>
+              <li>
+                <NavLink activeClassName="active" to="/">BOOKS</NavLink>
+              </li>
+              <li>
+                <NavLink activeClassName="active" to="/categories">CATEGORIES</NavLink>
+              </li>
             </ul>
           </MediaQuery>
           <img src={logo} className="App-logo" alt="logo" />
