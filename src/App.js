@@ -24,10 +24,10 @@ function App() {
           <MediaQuery minWidth={860}>
             <ul>
               <li>
-                <NavLink activeClassName="active" to="/">BOOKS</NavLink>
+                <NavLink activeclassname="active" to="/">BOOKS</NavLink>
               </li>
               <li>
-                <NavLink activeClassName="active" to="/categories">CATEGORIES</NavLink>
+                <NavLink activeclassname="active" to="/categories">CATEGORIES</NavLink>
               </li>
             </ul>
           </MediaQuery>
