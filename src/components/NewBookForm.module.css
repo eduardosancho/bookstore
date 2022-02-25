@@ -42,4 +42,5 @@ form button {
   padding: 10px 0;
   border: none;
   border-radius: 5px;
+  min-width: 100px;
 }
