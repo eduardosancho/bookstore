@@ -11,6 +11,7 @@ export default function BookItem(props) {
   const randomChapter = getRandom(1, 11);
 
   const {
+    author = 'No author registered',
     currentChapter = `Chapter ${randomChapter}`,
     completedProgress = randomChapter * 10,
   } = book;
@@ -21,7 +22,7 @@ export default function BookItem(props) {
       <div className={styles.description}>
         <h4 className={styles.category}>{book.category}</h4>
         <h2 className={styles.title}>{book.title}</h2>
-        <h3 className={styles.author}>{book.author}</h3>
+        <h3 className={styles.author}>{author}</h3>
         <ul className={styles.actions}>
           <li>
             <button

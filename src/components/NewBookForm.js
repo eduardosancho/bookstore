@@ -21,7 +21,7 @@ export default function NewBookForm() {
       currentChapter: `Chapter ${chapter}`,
       completedProgress: chapter * 10,
     };
-    if (title !== '' && category !== 'Category') {
+    if (title !== '' && category !== '') {
       dispatch(postBookToAPI(newBook));
       setTitle('');
       setAuthor('');
@@ -58,7 +58,7 @@ export default function NewBookForm() {
         onChange={(e) => setCategory(e.target.value)}
         name="category"
       >
-        <option defaultValue="Category">Category</option>
+        <option defaultValue="">Category</option>
         <option value="Action">Action</option>
         <option value="Science Fiction">Science Fiction</option>
         <option value="Economy">Economy</option>
