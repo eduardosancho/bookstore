@@ -9,6 +9,7 @@
 form {
   position: fixed;
   bottom: 0;
+  width: 90%;
   background-color: white;
   border-top: var(--dark-gray) solid 1px;
   display: flex;
