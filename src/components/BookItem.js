@@ -1,6 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import MediaQuery from 'react-responsive';
 import deleteBookFromAPI from '../redux/actions/removeBook';
 import styles from './BookItem.module.css';
 import Pie from './progressCircle';
@@ -56,19 +57,23 @@ export default function BookItem(props) {
           percentage={parseInt(completedProgress, 10)}
           colour="purple"
         />
-        <div className={styles.percentage}>
-          <h5>
-            {completedProgress}
-            %
-          </h5>
-          <p>Completed</p>
+        <MediaQuery minWidth={860}>
+          <div className={styles.percentage}>
+            <h5>
+              {completedProgress}
+              %
+            </h5>
+            <p>Completed</p>
+          </div>
+        </MediaQuery>
+      </div>
+      <MediaQuery minWidth={650}>
+        <div className={styles.update}>
+          <p className={styles.label}>CURRENT CHAPTER</p>
+          <p className={styles.currentChapter}>{currentChapter}</p>
+          <button type="submit">UPDATE PROGRESS</button>
         </div>
-      </div>
-      <div className={styles.update}>
-        <p className={styles.label}>CURRENT CHAPTER</p>
-        <p className={styles.currentChapter}>{currentChapter}</p>
-        <button type="submit">UPDATE PROGRESS</button>
-      </div>
+      </MediaQuery>
     </li>
   );
 }
