@@ -57,7 +57,7 @@ export default function BookItem(props) {
           percentage={parseInt(completedProgress, 10)}
           colour="#0290ff"
         />
-        <MediaQuery minWidth={860}>
+        <MediaQuery minWidth={960}>
           <div className={styles.percentage}>
             <h5>
               {completedProgress}
@@ -65,6 +65,17 @@ export default function BookItem(props) {
             </h5>
             <p>Completed</p>
           </div>
+        </MediaQuery>
+        <MediaQuery minWidth={450}>
+          <MediaQuery maxWidth={650}>
+            <div className={styles.percentage}>
+              <h5>
+                {completedProgress}
+                %
+              </h5>
+              <p>Completed</p>
+            </div>
+          </MediaQuery>
         </MediaQuery>
       </div>
       <MediaQuery minWidth={650}>
