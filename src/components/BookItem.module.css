@@ -1,7 +1,7 @@
 :root {
-  --blue-text: rgb(10, 0, 150);
-  --blue-info: rgb(5, 80, 160);
-  --blue-button: rgb(55, 90, 180);
+  --blue-text: #4386bf;
+  --blue-info: #0290ff;
+  --blue-button: #0290ff;
   --gray: rgb(215, 200, 200);
   --dark-gray: rgb(80, 80, 80);
 }
@@ -45,9 +45,21 @@
 
 .actions {
   display: flex;
-  gap: 15px;
   padding-inline-start: 0;
   list-style: none;
+}
+
+.actions > * {
+  border-right: var(--gray) solid 1px;
+  padding: 0 10px;
+}
+
+.actions li:first-child {
+  padding-left: 0;
+}
+
+.actions li:last-child {
+  border: none;
 }
 
 .actions button {

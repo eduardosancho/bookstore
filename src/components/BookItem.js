@@ -55,7 +55,7 @@ export default function BookItem(props) {
       <div className={styles.progress}>
         <Pie
           percentage={parseInt(completedProgress, 10)}
-          colour="purple"
+          colour="#0290ff"
         />
         <MediaQuery minWidth={860}>
           <div className={styles.percentage}>
