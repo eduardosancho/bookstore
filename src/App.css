@@ -24,12 +24,60 @@ nav {
   gap: 50px;
 }
 
-nav ul > * {
+nav ul li > * {
   margin: 5px 20px;
   text-decoration: none;
   font-weight: 300;
+  color: var(--gray);
 }
 
-ul {
+nav ul {
+  display: flex;
+  list-style: none;
   padding-inline-start: 0;
+}
+
+.active {
+  color: var(--dark-gray);
+}
+
+.books-container {
+  padding-inline-start: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+button {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.categories-temp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 100px - 90px);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.categories-title {
+  margin: 0;
+  color: var(--dark-gray);
+}
+
+@media (max-width: 635px) {
+  .App {
+    padding-bottom: 190px;
+  }
+}
+
+@media (min-width: 635px) {
+  .App {
+    padding-bottom: 150px;
+  }
+}
+
+@media (min-width: 960px) {
+  .App {
+    padding-bottom: 100px;
+  }
 }

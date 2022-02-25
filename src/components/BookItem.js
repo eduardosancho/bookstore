@@ -1,8 +1,10 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import MediaQuery from 'react-responsive';
 import deleteBookFromAPI from '../redux/actions/removeBook';
 import styles from './BookItem.module.css';
+import Pie from './progressCircle';
 
 export const getRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
@@ -51,20 +53,38 @@ export default function BookItem(props) {
         </ul>
       </div>
       <div className={styles.progress}>
-        <div className={styles.pie} />
-        <div className={styles.percentage}>
-          <h5>
-            {completedProgress}
-            %
-          </h5>
-          <p>Completed</p>
+        <Pie
+          percentage={parseInt(completedProgress, 10)}
+          colour="#0290ff"
+        />
+        <MediaQuery minWidth={960}>
+          <div className={styles.percentage}>
+            <h5>
+              {completedProgress}
+              %
+            </h5>
+            <p>Completed</p>
+          </div>
+        </MediaQuery>
+        <MediaQuery minWidth={450}>
+          <MediaQuery maxWidth={650}>
+            <div className={styles.percentage}>
+              <h5>
+                {completedProgress}
+                %
+              </h5>
+              <p>Completed</p>
+            </div>
+          </MediaQuery>
+        </MediaQuery>
+      </div>
+      <MediaQuery minWidth={650}>
+        <div className={styles.update}>
+          <p className={styles.label}>CURRENT CHAPTER</p>
+          <p className={styles.currentChapter}>{currentChapter}</p>
+          <button type="submit">UPDATE PROGRESS</button>
         </div>
-      </div>
-      <div className={styles.update}>
-        <p className={styles.label}>CURRENT CHAPTER</p>
-        <p className={styles.currentChapter}>{currentChapter}</p>
-        <button type="submit">UPDATE PROGRESS</button>
-      </div>
+      </MediaQuery>
     </li>
   );
 }
