@@ -1,11 +1,20 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/books';
+import deleteBookFromAPI from '../redux/actions/removeBook';
 import styles from './BookItem.module.css';
+
+export const getRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
 export default function BookItem(props) {
   const { book } = props;
+  const randomChapter = getRandom(1, 11);
+
+  const {
+    author = 'No author registered',
+    currentChapter = `Chapter ${randomChapter}`,
+    completedProgress = randomChapter * 10,
+  } = book;
 
   const dispatch = useDispatch();
   return (
@@ -13,7 +22,7 @@ export default function BookItem(props) {
       <div className={styles.description}>
         <h4 className={styles.category}>{book.category}</h4>
         <h2 className={styles.title}>{book.title}</h2>
-        <h3 className={styles.author}>{book.author}</h3>
+        <h3 className={styles.author}>{author}</h3>
         <ul className={styles.actions}>
           <li>
             <button
@@ -25,7 +34,9 @@ export default function BookItem(props) {
           <li>
             <button
               type="button"
-              onClick={() => dispatch(removeBook(book.id))}
+              onClick={() => {
+                dispatch(deleteBookFromAPI(book.item_id));
+              }}
             >
               Remove
             </button>
@@ -43,7 +54,7 @@ export default function BookItem(props) {
         <div className={styles.pie} />
         <div className={styles.percentage}>
           <h5>
-            {book.completedProgress}
+            {completedProgress}
             %
           </h5>
           <p>Completed</p>
@@ -51,7 +62,7 @@ export default function BookItem(props) {
       </div>
       <div className={styles.update}>
         <p className={styles.label}>CURRENT CHAPTER</p>
-        <p className={styles.currentChapter}>{book.currentChapter}</p>
+        <p className={styles.currentChapter}>{currentChapter}</p>
         <button type="submit">UPDATE PROGRESS</button>
       </div>
     </li>

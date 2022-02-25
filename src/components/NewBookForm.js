@@ -2,25 +2,36 @@ import React, { useState } from 'react';
 import './NewBookForm.module.css';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/books';
+import postBookToAPI from '../redux/actions/addBook';
+import { getRandom } from './BookItem';
 
 export default function NewBookForm() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [category, setCategory] = useState('Action');
+  const [category, setCategory] = useState('');
   const dispatch = useDispatch();
 
+  function validateAuthor(author) {
+    return (author === '') ? 'No author registered' : author;
+  }
+
   const submitBookToStore = (form) => {
+    const chapter = getRandom(1, 11);
     const newBook = {
-      id: uuidv4(),
+      item_id: uuidv4(),
       title: form.title.value,
-      author: form.author.value,
+      author: validateAuthor(form.author.value),
       category: form.category.value,
+      currentChapter: `Chapter ${chapter}`,
+      completedProgress: chapter * 10,
     };
-    dispatch(addBook(newBook));
-    setTitle('');
-    setAuthor('');
-    setCategory('Category');
+
+    if (title !== '' && category !== '') {
+      dispatch(postBookToAPI(newBook));
+      setTitle('');
+      setAuthor('');
+      setCategory('Category');
+    }
   };
 
   const handleSubmit = (e) => {
@@ -52,7 +63,7 @@ export default function NewBookForm() {
         onChange={(e) => setCategory(e.target.value)}
         name="category"
       >
-        <option defaultValue="Category">Category</option>
+        <option defaultValue="">Category</option>
         <option value="Action">Action</option>
         <option value="Science Fiction">Science Fiction</option>
         <option value="Economy">Economy</option>

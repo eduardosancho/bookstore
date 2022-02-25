@@ -10,7 +10,7 @@ function Library(props) {
       {bookList.length ? (
         bookList.map((book) => (
           <BookItem
-            key={book.id}
+            key={book.item_id}
             book={book}
           />
         ))
