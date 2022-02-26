@@ -1,0 +1,54 @@
+:root {
+  --blue-text: rgb(10, 0, 150);
+  --blue-info: rgb(5, 80, 160);
+  --blue-button: rgb(55, 90, 180);
+  --gray: rgb(215, 200, 200);
+  --dark-gray: rgb(80, 80, 80);
+}
+
+form {
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+  background-color: white;
+  border-top: var(--dark-gray) solid 1px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 20px 5%;
+  gap: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
+}
+
+form p {
+  flex-basis: 100%;
+  text-align: left;
+  font-size: 1rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin: 0;
+}
+
+form input {
+  flex: 3;
+  font-size: 1.2rem;
+}
+
+form select {
+  background-color: white;
+  flex: 1;
+  font-size: 1.2rem;
+}
+
+form button {
+  background-color: var(--blue-button);
+  color: white;
+  flex: 1;
+  font-size: 0.8rem;
+  padding: 10px 0;
+  border: none;
+  border-radius: 5px;
+  min-width: 100px;
+}

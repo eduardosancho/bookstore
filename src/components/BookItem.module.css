@@ -1,0 +1,139 @@
+:root {
+  --blue-text: #4386bf;
+  --blue-info: #0290ff;
+  --blue-button: #0290ff;
+  --gray: rgb(215, 200, 200);
+  --dark-gray: rgb(80, 80, 80);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  margin: 10px 5%;
+  padding: 10px 20px;
+  background-color: white;
+  border: solid white 1px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 2;
+}
+
+.category {
+  color: var(--dark-gray);
+  font-size: 0.8rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.title {
+  color: black;
+  font-size: 1.2rem;
+  margin: 0;
+  text-align: left;
+}
+
+.author {
+  color: var(--blue-text);
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+.actions {
+  display: flex;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.actions > * {
+  border-right: var(--gray) solid 1px;
+  padding: 0 10px;
+}
+
+.actions li:first-child {
+  padding-left: 0;
+}
+
+.actions li:last-child {
+  border: none;
+}
+
+.actions button {
+  color: var(--blue-text);
+  font-size: 0.8rem;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  height: auto;
+  align-self: center;
+}
+
+.percentage {
+  color: var(--dark-gray);
+  font-size: 1rem;
+  text-align: left;
+}
+
+.percentage h5 {
+  color: black;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.percentage p {
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+.update {
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+  gap: 5px;
+  text-align: left;
+  margin-left: 50px;
+}
+
+.label {
+  color: gray;
+  margin: 0;
+}
+
+.currentChapter {
+  color: black;
+  max-height: 60px;
+  margin: 0;
+}
+
+.update button {
+  background-color: var(--blue-button);
+  color: white;
+  font-weight: 200;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.actions button:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 650px) {
+  .progress {
+    border-right: solid var(--gray) 2px;
+  }
+}

@@ -1,0 +1,83 @@
+.App {
+  text-align: center;
+  background-color: rgb(230, 230, 230);
+}
+
+.App-logo {
+  width: 3rem;
+  margin-right: 10px;
+  margin-left: auto;
+}
+
+h1 {
+  color: var(--blue-info);
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 15px 50px;
+  border-bottom: rgb(220, 220, 220) 1px outset;
+  background-color: white;
+  gap: 50px;
+}
+
+nav ul li > * {
+  margin: 5px 20px;
+  text-decoration: none;
+  font-weight: 300;
+  color: var(--gray);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.active {
+  color: var(--dark-gray);
+}
+
+.books-container {
+  padding-inline-start: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+button {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.categories-temp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 100px - 90px);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.categories-title {
+  margin: 0;
+  color: var(--dark-gray);
+}
+
+@media (max-width: 635px) {
+  .App {
+    padding-bottom: 190px;
+  }
+}
+
+@media (min-width: 635px) {
+  .App {
+    padding-bottom: 150px;
+  }
+}
+
+@media (min-width: 960px) {
+  .App {
+    padding-bottom: 100px;
+  }
+}
