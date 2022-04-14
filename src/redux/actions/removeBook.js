@@ -6,7 +6,7 @@ const removeBook = (payload) => ({
   payload,
 });
 
-const deleteBookFromAPI = (bookID) => function (dispatch) {
+const deleteBookFromAPI = (bookID) => function dispatch(dispatch) {
   const deleteURL = `${basicURL}${appID}/books/${bookID}`;
 
   fetch(deleteURL, {

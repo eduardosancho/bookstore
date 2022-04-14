@@ -6,7 +6,7 @@ export const addBook = (payload) => ({
   payload,
 });
 
-const postBookToAPI = (newBook) => function (dispatch) {
+const postBookToAPI = (newBook) => function dispatch(dispatch) {
   const postURL = `${basicURL}${appID}/books/`;
   const bookCopy = { ...newBook };
   bookCopy.title = `${bookCopy.title}&&&${bookCopy.author}`;
